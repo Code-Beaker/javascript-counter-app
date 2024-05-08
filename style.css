@@ -1,3 +1,16 @@
+:root {
+  --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vi, 0.8rem);
+  --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vi, 1rem);
+  --step-0: clamp(1.125rem, 1.0815rem + 0.2174vi, 1.25rem);
+  --step-1: clamp(1.35rem, 1.2761rem + 0.3696vi, 1.5625rem);
+  --step-2: clamp(1.62rem, 1.5041rem + 0.5793vi, 1.9531rem);
+  --step-3: clamp(1.944rem, 1.771rem + 0.8651vi, 2.4414rem);
+  --step-4: clamp(2.3328rem, 2.0827rem + 1.2504vi, 3.0518rem);
+  --step-5: clamp(2.7994rem, 2.4462rem + 1.7658vi, 3.8147rem);
+  --step-6: clamp(3.3592rem, 2.8691rem + 2.4507vi, 4.7684rem);
+  --step-7: clamp(4.0311rem, 3.36rem + 3.3555vi, 5.9605rem);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -26,10 +39,11 @@ main {
 h1 {
   color: darkblue;
   letter-spacing: 2px;
+  font-size: var(--step-4);
 }
 
 h2 {
-  font-size: 3.5rem;
+  font-size: var(--step-5);
   display: block;
   margin: 2rem auto;
 }
@@ -37,6 +51,7 @@ h2 {
 p {
   color: grey;
   margin: 2rem 0;
+  font-size: var(--step-0);
 }
 
 .btn-flex {
@@ -53,8 +68,8 @@ button {
   color: darkblue;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 1.125rem;
-  font-weight: 500;
+  font-size: var(--step--1);
+  font-weight: bold;
   border: 2px solid darkblue;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -75,16 +90,57 @@ button:focus {
     max-width: 20rem;
     border-radius: 1rem;
   }
-
+  /* 
   h1 {
-    font-size: 1.5rem;
+    font-size: var(--step-4);
   }
 
   h2 {
-    font-size: 2.5rem;
-  }
+    font-size: var(--step-5);
+  } */
 
   button {
     width: 100%;
   }
+}
+
+.additional-info-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 2rem;
+}
+
+.additional-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  flex-grow: 1;
+  width: 100%;
+  font-size: var(--step-0);
+}
+
+@media (width < 50rem) {
+  .additional-info-container {
+    text-align: center;
+  }
+
+  .additional-text {
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: auto;
+  }
+}
+
+.error {
+  font-size: var(--step-0);
+  flex-basis: 1;
+  color: #e32636;
+  display: none;
+  flex-grow: 2;
 }
